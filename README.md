@@ -18,6 +18,16 @@ import 해줘야 한다.
 하나의 Component를 다른 곳에서 불러올 수 있으며,
 마치 html태그를 적는 것처럼 불러오면 된다.
 
+핵심 Concept
+-Props
+부모 Component에서 property를 정하면서 자식 Component에게 props를 통해서 정보를 준다. (ex title={movies[0]} )
+자식 Component에서 {this.props.propertyName} 으로 그 정보에 접근할 수 있다.
+
+main component에 정보가 다 있고, 그 정보를 자식에게 주는 형식으로
+powerful한 ui를 구축하게 된다.
+
+-State
+
 아래는 create react app에 관한 설명이다.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
