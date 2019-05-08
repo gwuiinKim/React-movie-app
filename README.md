@@ -1,6 +1,6 @@
 제가 참고하려고 만들었습니다.
 
-React 공부
+## React 공부
 
 index.js 파일을 수정함으로써, index.html파일을 다루게 된다.
 
@@ -18,8 +18,10 @@ import 해줘야 한다.
 하나의 Component를 다른 곳에서 불러올 수 있으며,
 마치 html태그를 적는 것처럼 불러오면 된다.
 
-핵심 Concept
--Props
+## 핵심 Concept
+
+### "-Props"
+
 부모 Component에서 property를 정하면서 자식 Component에게 props를 통해서 정보를 준다. (ex propertyName={array[0]} )
 자식 Component에서 {this.props.propertyName} 으로 그 정보에 접근할 수 있다.
 
@@ -37,9 +39,23 @@ propertyName: propTypes.string.isRequired
 이를 통해서 type을 설정해줄 뿐만 아니라,
 부모 element로부터 어떠한 정보를 얻는지도 확인할 수 있게 된다.
 
--State
+### "-State"
 
--react 16
+### "-lifecycle events"
+
+Render : componentWillMount() -> render() -> componentDidMount()
+
+componentWillMount에서 component는 곧 exist하게 될 것임을 알려주고,
+Render에서 component는 exist하게 됨.
+componentDidMount에선 component가 exist한다는 것을 알려준다.
+
+update: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render()-> componentDidUpdate()
+
+새로운 props를 받았을 때 - props가 다를 경우 true - component가 update될 것임을 알려주고 - render -> component가 update 되었음을 알려줌.
+
+예를 들면 componentWillUpdate에 업데이트 중임을 나타내는 것을 넣거나. componentDidUpdate에 업데이트가 끝났음을 보여주는.!
+
+## react 16
 
 array의 element를 Return 하는 기능(unique key를 지정해줘야 함.)
 
