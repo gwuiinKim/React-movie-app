@@ -10,7 +10,7 @@ ReactNative는 이 UI라이브러리를 모바일에 render 해주는 기능을 
 
 ReactDOM은 컴포넌트를 출력하는데, index.html안에 있는 id가 root인 div 안에 만들게 된다.
 
-React는 Component 단위로 작업할 수 있게 되어있다. Component들은 render, return을 해야만 한다. Component내부에서 return하는 html은 jsx라고 하는 React의 html 적는 방식이다.
+React는 Component 단위로 작업할 수 있게 되어있다. Component들은 render, return을 해야만 한다. Component내부에서 return하는 html은 jsx라고 하는 React의 html 혹은 javascript를 적는 방식이다.
 
 Component를 작업할 때, 그 js 파일에 Css파일을
 import 해줘야 한다.
@@ -27,6 +27,10 @@ main component에 정보가 다 있고, 그 정보를 자식에게 주는 형식
 powerful한 ui를 구축하게 된다.
 
 -State
+
+-react 16
+
+-One of the most requesting features around React community has been returning multiple elements from a component’s render method. The basic way is to return an array of elements. To avoid warnings you have to add a key to each element, although it may not be needed in the future.
 
 아래는 create react app에 관한 설명이다.
 
