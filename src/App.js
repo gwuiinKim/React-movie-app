@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import "./Movie";
 import Movie from "./Movie";
@@ -23,8 +22,8 @@ const movies = [
 ];
 
 function App() {
-  const movie = movies.map(movie => {
-    return <Movie title={movie.title} poster={movie.poster} />;
+  const movie = movies.map((movie, index) => {
+    return <Movie title={movie.title} poster={movie.poster} key={index} />;
   });
   return <div className="App">{movie}</div>;
 }

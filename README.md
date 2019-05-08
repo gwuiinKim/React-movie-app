@@ -20,17 +20,28 @@ import 해줘야 한다.
 
 핵심 Concept
 -Props
-부모 Component에서 property를 정하면서 자식 Component에게 props를 통해서 정보를 준다. (ex title={movies[0]} )
+부모 Component에서 property를 정하면서 자식 Component에게 props를 통해서 정보를 준다. (ex propertyName={array[0]} )
 자식 Component에서 {this.props.propertyName} 으로 그 정보에 접근할 수 있다.
 
 main component에 정보가 다 있고, 그 정보를 자식에게 주는 형식으로
 powerful한 ui를 구축하게 된다.
 
+type을 정하기 위해서는 render 하기 전에
+예를 들자면
+
+static propTypes= {
+propertyName: propTypes.string.isRequired
+}
+이런 식으로 설정해주기.
+(prop-type 을 먼저 install)
+이를 통해서 type을 설정해줄 뿐만 아니라,
+부모 element로부터 어떠한 정보를 얻는지도 확인할 수 있게 된다.
+
 -State
 
 -react 16
 
--One of the most requesting features around React community has been returning multiple elements from a component’s render method. The basic way is to return an array of elements. To avoid warnings you have to add a key to each element, although it may not be needed in the future.
+array의 element를 Return 하는 기능(unique key를 지정해줘야 함.)
 
 아래는 create react app에 관한 설명이다.
 
