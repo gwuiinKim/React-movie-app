@@ -1,3 +1,25 @@
+제가 참고하려고 만들었습니다.
+
+React 공부
+
+index.js 파일을 수정함으로써, index.html파일을 다루게 된다.
+
+React는 UI라이브러리이고,
+ReactDOM 은 이 UI라이브러리를 웹에 render해주는 기능을 담당하고,
+ReactNative는 이 UI라이브러리를 모바일에 render 해주는 기능을 담당한다.
+
+ReactDOM은 컴포넌트를 출력하는데, index.html안에 있는 id가 root인 div 안에 만들게 된다.
+
+React는 Component 단위로 작업할 수 있게 되어있다. Component들은 render, return을 해야만 한다. Component내부에서 return하는 html은 jsx라고 하는 React의 html 적는 방식이다.
+
+Component를 작업할 때, 그 js 파일에 Css파일을
+import 해줘야 한다.
+
+하나의 Component를 다른 곳에서 불러올 수 있으며,
+마치 html태그를 적는 것처럼 불러오면 된다.
+
+아래는 create react app에 관한 설명이다.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
