@@ -20,7 +20,7 @@ import 해줘야 한다.
 
 ## 핵심 Concept
 
-### ' -Props'
+### -Props
 
 부모 Component에서 property를 정하면서 자식 Component에게 props를 통해서 정보를 준다. (ex propertyName={array[0]} )
 자식 Component에서 {this.props.propertyName} 으로 그 정보에 접근할 수 있다.
@@ -39,7 +39,7 @@ propertyName: propTypes.string.isRequired
 이를 통해서 type을 설정해줄 뿐만 아니라,
 부모 element로부터 어떠한 정보를 얻는지도 확인할 수 있게 된다.
 
-### '-State'
+### -State
 
 Component의 state가 바뀌게 되면, 새로운 state와 함께 render function이 다시 실행되게 된다.
 
@@ -88,10 +88,9 @@ state = {
     }, 3000);
   }
 
+```
 
-
-
-### ' -lifecycle events'
+### -lifecycle events
 
 Render : componentWillMount() -> render() -> componentDidMount()
 
@@ -179,4 +178,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+```
+
 ```
