@@ -20,7 +20,7 @@ import 해줘야 한다.
 
 ## 핵심 Concept
 
-### "-Props"
+### ' -Props'
 
 부모 Component에서 property를 정하면서 자식 Component에게 props를 통해서 정보를 준다. (ex propertyName={array[0]} )
 자식 Component에서 {this.props.propertyName} 으로 그 정보에 접근할 수 있다.
@@ -39,13 +39,59 @@ propertyName: propTypes.string.isRequired
 이를 통해서 type을 설정해줄 뿐만 아니라,
 부모 element로부터 어떠한 정보를 얻는지도 확인할 수 있게 된다.
 
-### "-State"
+### '-State'
 
 Component의 state가 바뀌게 되면, 새로운 state와 함께 render function이 다시 실행되게 된다.
 
 주의사항: state를 바꿀 때에는 직접 state에 접근하는 것이 아니라 setState() 로 해야 한다.
 
-### "-lifecycle events"
+예를 들어 list가 state내부에 정의된 경우,
+componentDidMount() 내부에서 list 를 변경해 주면
+다시 render가 실행된다.
+
+예시 : 스크롤 내리다가 맨 끝에까지 내려오면, 추가로 정보를 얻어올 때. infinite scrolling이라고도 함.
+array안에서 ... 을 앞에 넣어주면 된다.
+
+```javascript
+state = {
+    movies: [
+      {
+        title: "inception",
+        poster:
+          "https://is1-ssl.mzstatic.com/image/thumb/Video4/v4/86/ac/14/86ac14f2-8c9b-2a5a-80be-49b8ee402228/pr_source.lsr/268x0w.png"
+      },
+      {
+        title: "avatar",
+        poster:
+          "https://www.screengeek.net/wp-content/uploads/2018/11/avatar-movie.jpg"
+      },
+      {
+        title: "avengers",
+        poster:
+          "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+      }
+    ]
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        movies: [
+          ...this.state.movies,
+          {
+            title: "iron man",
+            poster:
+              "https://is1-ssl.mzstatic.com/image/thumb/Video128/v4/89/74/cf/8974cfa0-5e27-1c5e-390a-e97e5d12a51d/contsched.rdzrzprk.lsr/268x0w.jpg"
+          }
+        ]
+      });
+    }, 3000);
+  }
+
+
+
+
+### ' -lifecycle events'
 
 Render : componentWillMount() -> render() -> componentDidMount()
 
@@ -133,3 +179,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
