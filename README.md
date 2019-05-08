@@ -41,13 +41,17 @@ propertyName: propTypes.string.isRequired
 
 ### -State
 
-Component의 state가 바뀌게 되면, 새로운 state와 함께 render function이 다시 실행되게 된다.
+모든 component가 state가 있는 것은 아니다.
+state가 없는 (stateless) component를 Dumb component라 하며 state가 있는 Component를 smart component라 한다.
+state가 없는 component는 그저 무엇인가를 return하기 위해 있는 것이다.
 
-주의사항: state를 바꿀 때에는 직접 state에 접근하는 것이 아니라 setState() 로 해야 한다.
+Component의 state가 바뀌게 되면, 새로운 state와 함께 render function이 다시 실행되게 된다.
 
 예를 들어 list가 state내부에 정의된 경우,
 componentDidMount() 내부에서 list 를 변경해 주면
 다시 render가 실행된다.
+
+주의사항: state를 바꿀 때에는 직접 state에 접근하는 것이 아니라 setState() 로 해야 한다.
 
 예시 : 스크롤 내리다가 맨 끝에까지 내려오면, 추가로 정보를 얻어올 때. infinite scrolling이라고도 함.
 array안에서 ... 을 앞에 넣어주면 된다.
