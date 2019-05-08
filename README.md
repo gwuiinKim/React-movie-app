@@ -41,6 +41,10 @@ propertyName: propTypes.string.isRequired
 
 ### "-State"
 
+Component의 state가 바뀌게 되면, 새로운 state와 함께 render function이 다시 실행되게 된다.
+
+주의사항: state를 바꿀 때에는 직접 state에 접근하는 것이 아니라 setState() 로 해야 한다.
+
 ### "-lifecycle events"
 
 Render : componentWillMount() -> render() -> componentDidMount()
