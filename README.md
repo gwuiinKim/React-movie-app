@@ -41,6 +41,8 @@ propertyName: propTypes.string.isRequired
 
 ### -State
 
+https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
+
 모든 component가 state가 있는 것은 아니다.
 state가 없는 (stateless) component를 Dumb component라 하며 state가 있는 Component를 smart component라 한다.
 state가 없는 component는 그저 무엇인가를 return하기 위해 있는 것이다.
@@ -107,6 +109,14 @@ update: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillU
 새로운 props를 받았을 때 - props가 다를 경우 true - component가 update될 것임을 알려주고 - render -> component가 update 되었음을 알려줌.
 
 예를 들면 componentWillUpdate에 업데이트 중임을 나타내는 것을 넣거나. componentDidUpdate에 업데이트가 끝났음을 보여주는.!
+
+## Ajax, Promise
+
+https://facebook.github.io/react-native/docs/network.html
+
+http://jamesknelson.com/grokking-es6-promises-the-four-functions-you-need-to-avoid-callback-hell/
+
+https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
 
 ## react 16
 
