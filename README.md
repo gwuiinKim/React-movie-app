@@ -1,3 +1,6 @@
+결과물
+https://gwuiinkim.github.io/React-movie-app/
+
 제가 참고하려고 만들었습니다.
 
 ## React 공부
@@ -125,6 +128,10 @@ array의 element를 Return 하는 기능(unique key를 지정해줘야 함.)
 ## Building for Production
 
 https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089
+
+### `yarn build`
+
+한 이후에 terminal에서 나오는 설명을 그대로 따라주면 된다.
 
 아래는 create react app에 관한 설명이다.
 

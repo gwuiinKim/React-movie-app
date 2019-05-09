@@ -10,7 +10,6 @@ function Movie({ title, poster, genres, synopsis }) {
       <div className="Movie__Column">
         <MoviePoster poster={poster} alt={title} />
       </div>
-
       <div className="Movie__Column">
         <h1 className="Movie__Title">{title}</h1>
         <div className="Movie__Genres">
