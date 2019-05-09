@@ -122,6 +122,10 @@ https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away
 
 array의 element를 Return 하는 기능(unique key를 지정해줘야 함.)
 
+## Building for Production
+
+https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089
+
 아래는 create react app에 관한 설명이다.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

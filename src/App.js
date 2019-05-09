@@ -32,7 +32,7 @@ class App extends Component {
       return (
         <Movie
           title={movie.title_english}
-          poster={movie.medium_cover_image}
+          poster={movie.large_cover_image}
           genres={movie.genres}
           synopsis={movie.synopsis}
           key={index}
@@ -56,9 +56,10 @@ class App extends Component {
   // };
 
   render() {
+    const { movies } = this.state;
     return (
-      <div className="App">
-        {this.state.movies ? this._renderMovies() : "Loading"}
+      <div className={movies ? "App" : "App--loading"}>
+        {movies ? this._renderMovies() : "Loading"}
       </div>
     );
   }
