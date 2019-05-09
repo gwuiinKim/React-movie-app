@@ -10,19 +10,6 @@ class App extends Component {
     this._getMovies();
   }
 
-  _renderMovies = () => {
-    const movie = this.state.movies.map((movie, index) => {
-      return (
-        <Movie
-          title={movie.title}
-          poster={movie.large_cover_image}
-          key={index}
-        />
-      );
-    });
-    return movie;
-  };
-
   _getMovies = async () => {
     const movies = await this._callApi();
     this.setState({
@@ -38,6 +25,23 @@ class App extends Component {
       .then(json => json.data.movies)
       .catch(err => console.log(err));
   };
+
+  _renderMovies = () => {
+    const movie = this.state.movies.map((movie, index) => {
+      console.log(movie);
+      return (
+        <Movie
+          title={movie.title_english}
+          poster={movie.medium_cover_image}
+          genres={movie.genres}
+          synopsis={movie.synopsis}
+          key={index}
+        />
+      );
+    });
+    return movie;
+  };
+
   // _callApi = async () => {
   //   try {
   //     const movieData = await fetch(
