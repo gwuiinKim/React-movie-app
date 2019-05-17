@@ -1,65 +1,56 @@
 결과물
 https://gwuiinkim.github.io/React-movie-app/
 
-제가 참고하려고 만들었습니다.
+제가 참고하려고 만들었습니다. 복습용 readme.
 
 ## React 공부
 
-index.js 파일을 수정함으로써, index.html파일을 다루게 된다.
+기본 작동원리.
 
-React는 UI라이브러리이고,
-ReactDOM 은 이 UI라이브러리를 웹에 render해주는 기능을 담당하고,
-ReactNative는 이 UI라이브러리를 모바일에 render 해주는 기능을 담당한다.
+app.js에서 작업 -> index.js 를 거쳐 -> index.html에 적용
 
-ReactDOM은 컴포넌트를 출력하는데, index.html안에 있는 id가 root인 div 안에 만들게 된다.
+- React는 UI라이브러리.
+- ReactDOM : 이 UI라이브러리를 웹에 render해주는 기능을 담당
+- ReactNative : 이 UI라이브러리를 모바일에 render 해주는 기능을 담당
 
-React는 Component 단위로 작업할 수 있게 되어있다. Component들은 render, return을 해야만 한다. Component내부에서 return하는 html은 jsx라고 하는 React의 html 혹은 javascript를 적는 방식이다.
+- ReactDOM: index.html안에 있는 id가 root인 div 안에 Component를 출력함. ( react 16에서 portal을 사용하면 id 가 root인 div 외의 html에도 react를 적용할 수 있게 됨.)
 
-Component를 작업할 때, 그 js 파일에 Css파일을
-import 해줘야 한다.
+- React의 가장 기본원리: Component 단위의 작업.
+  container component들은 render, return을 해야만 하며,
+  presenter component는 return만 해주면 된다.
+  ( 자세한 사항은 아래의 state에서 참고. )
+  Component에서는 jsx를 return 한다. (리액트에서 html과 javascript를 적는 방식)
 
-하나의 Component를 다른 곳에서 불러올 수 있으며,
-마치 html태그를 적는 것처럼 불러오면 된다.
+- Component는 마치 html태그를 적는 것처럼 불러오면 된다.
 
 ## 핵심 Concept
 
-### -Props
+### Props
 
-부모 Component에서 property를 정하면서 자식 Component에게 props를 통해서 정보를 준다. (ex propertyName={array[0]} )
-자식 Component에서 {this.props.propertyName} 으로 그 정보에 접근할 수 있다.
+- 부모 Component -> 자식 Component에게 property를 설정하며 props을 통해 정보를 준다. (ex propertyName={props})
+  --> 자식 Component에서 {this.props.propertyName} 혹은 {propertyName}
 
-main component에 정보가 다 있고, 그 정보를 자식에게 주는 형식으로
-powerful한 ui를 구축하게 된다.
+- 이렇게 함으로써, single source of information 형식이 되어 powerful한 ui를 구축하게 된다.
 
-type을 정하기 위해서는 render 하기 전에
-예를 들자면
+- propType을 설정해주면 좋다. (prop-type 을 먼저 install)
+  이를 통해서 props의 type을 설정해줄 수 있을 뿐만 아니라, 부모 element로부터 어떠한 정보를 얻는지도 확인할 수 있게 된다.
 
-static propTypes= {
-propertyName: propTypes.string.isRequired
-}
-이런 식으로 설정해주기.
-(prop-type 을 먼저 install)
-이를 통해서 type을 설정해줄 뿐만 아니라,
-부모 element로부터 어떠한 정보를 얻는지도 확인할 수 있게 된다.
-
-### -State
+### State
 
 https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0
 
-모든 component가 state가 있는 것은 아니다.
-state가 없는 (stateless) component를 Dumb component라 하며 state가 있는 Component를 smart component라 한다.
-state가 없는 component는 그저 무엇인가를 return하기 위해 있는 것이다.
+- smart component(container) vs dumb component(presenter)
 
-Component의 state가 바뀌게 되면, 새로운 state와 함께 render function이 다시 실행되게 된다.
+- state가 없는 (stateless) component를 Dumb component( presenter )
+- state가 있는 Component를 smart component( container )
 
-예를 들어 list가 state내부에 정의된 경우,
-componentDidMount() 내부에서 list 를 변경해 주면
-다시 render가 실행된다.
+- Component의 state가 바뀌게 되면, 새로운 state와 함께 render function이 다시 실행되게 된다.
 
-주의사항: state를 바꿀 때에는 직접 state에 접근하는 것이 아니라 setState() 로 해야 한다.
+\*\*주의사항: state를 바꿀 때에는 직접 state에 접근하는 것이 아니라 this.setState() 를 통해 변경해줘야 한다.
 
-예시 : 스크롤 내리다가 맨 끝에까지 내려오면, 추가로 정보를 얻어올 때. infinite scrolling이라고도 함.
-array안에서 ... 을 앞에 넣어주면 된다.
+예시 : 스크롤 내리다가 맨 끝에까지 내려오면, 추가로 정보를 얻어오는 것과 같은 상황. infinite scrolling.
+
+- array안에서 ... 을 앞에 넣어주면 된다.
 
 ```javascript
 state = {
@@ -99,19 +90,22 @@ state = {
 
 ```
 
-### -lifecycle events
+- 이런 식으로 원래의 list에 새로운 목록을 추가할 수 있다.
 
-Render : componentWillMount() -> render() -> componentDidMount()
+### lifecycle events
 
-componentWillMount에서 component는 곧 exist하게 될 것임을 알려주고,
-Render에서 component는 exist하게 됨.
-componentDidMount에선 component가 exist한다는 것을 알려준다.
+- Render : componentWillMount() -> render() -> componentDidMount()
+
+- componentWillMount : component가 곧 존재하게 될 것임을 나타냄
+- Render에서 component: component가 존재하게 됨.
+- componentDidMount : component가 존재한다는 것을 알려준다.
 
 update: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render()-> componentDidUpdate()
 
 새로운 props를 받았을 때 - props가 다를 경우 true - component가 update될 것임을 알려주고 - render -> component가 update 되었음을 알려줌.
 
-예를 들면 componentWillUpdate에 업데이트 중임을 나타내는 것을 넣거나. componentDidUpdate에 업데이트가 끝났음을 보여주는.!
+- 예를 들면 componentWillUpdate에 업데이트 중임을 나타내는 것을 넣을 수 있음.
+- componentDidUpdate에 업데이트가 끝났음을 보여주는 방식.
 
 ## Ajax, Promise
 
@@ -121,7 +115,54 @@ http://jamesknelson.com/grokking-es6-promises-the-four-functions-you-need-to-avo
 
 https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
 
-## react 16
+## React 16
+
+4가지 feature
+
+### Fragment
+
+불필요하게 span등의 태그로 감쌀 필요가 없어졌다. 그리고 <> 이런식으로 감쌀 수도 있게 됨. ( 별로 사용되지 않을 수도 있지만 string을 return할 수도 있다.)
+
+### Portal. #root 이외의 element도 react를 통해서 변경할 수 있다.
+
+### Error Boundaries
+
+자식 Component의 error를 handle 할 수 있게 되었다.
+error가 발생해도 전체 react app이 다 죽어버리는 것이 아니라,
+에러가 난 부분만 isolate해서 처리할 수 있다.
+하지만 각 Component 마다 다 customize 하기 보다는
+아래와 같은 형태로 한 곳으로 묶어서 각 Component별로 실행을 해주면 된다.
+
+```js
+const BoundaryHOC = ProtectedComponent =>
+  class Boundary extends Component {
+    state = {
+      hasError: false
+    };
+    componentDidCatch = () => {
+      this.setState({
+        hasError: true
+      });
+    };
+    render() {
+      const { hasError } = this.state;
+      if (hasError) {
+        return <ErrorFallback />;
+      } else {
+        return <ProtectedComponent />;
+      }
+    }
+  };
+
+const ErrorFallback = () => "Sorry something went wrong";
+```
+
+### this.setState(null)
+
+state에 null을 return함으로써,
+Component가 더 이상 update 되는 것을 막는다!
+Component를 변경하는 것이 아니라,
+Component가 update되는 것을 막는것.
 
 array의 element를 Return 하는 기능(unique key를 지정해줘야 함.)
 
@@ -132,78 +173,3 @@ https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-a
 ### `yarn build`
 
 한 이후에 terminal에서 나오는 설명을 그대로 따라주면 된다.
-
-아래는 create react app에 관한 설명이다.
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-```
-
-```
