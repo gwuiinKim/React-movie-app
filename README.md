@@ -166,10 +166,97 @@ Component가 update되는 것을 막는것.
 
 array의 element를 Return 하는 기능(unique key를 지정해줘야 함.)
 
-## Building for Production
+### Building for Production
 
 https://medium.freecodecamp.org/surge-vs-github-pages-deploying-a-create-react-app-project-c0ecbf317089
 
 ### `yarn build`
 
 한 이후에 terminal에서 나오는 설명을 그대로 따라주면 된다.
+
+---
+
+## styled Components
+
+- styled component : React, React Native 에서 css로 스타일링 가능.
+
+## Extra
+
+https://github.com/nomadcoders/styled-awesomeness/blob/fdb5d0d7ca29ab83dc4519c03ed76ab37a9d5c34/extras.md
+
+## nesting
+
+```js
+const Card = styled.div`
+  background-color: red;
+`;
+
+const Container = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-color: grey;
+  ${Card} {
+    background-color: blue;
+  }
+`;
+```
+
+## createGlobalStyle
+
+```javascript
+const GlobalStyle = createGlobalStyle`
+  body {
+    padding: 0;
+    margin: 0;
+  }
+`;
+```
+
+## Styled() or styled.element.attrs -> adding attributes
+
+```javascript
+const Anchor = styled(Button.withComponent("a"))`
+  text-decoration: none;
+`;
+```
+
+we can also use mixin here!
+
+## animation
+
+```js
+    import keyframes
+
+
+```
+
+## mixin
+
+나중에 쓰려고 encapsulate 하는 개념.
+
+```js
+const awesomeCard = css`
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+`;
+```
+
+## theme
+
+css의 변수를 저장해놓는 곳.(폰트 크기, 배경색.. 등등)
+
+```js
+const theme = {
+  mainColor: "#3498db",
+  dangerColor: "#e74c3c",
+  successColor: "#2ecc71"
+};
+
+export default theme;
+```
+
+App.js에서 import 해야함.
+
+---
